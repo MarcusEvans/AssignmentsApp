@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -11,8 +12,13 @@ public class Main {
         String todaysDate = todaysActualDateTime();
         System.out.println("Todays Date is : " + todaysDate + "\n");
 
+        //Output tomorrows date using a formatter
         String tommorrowsDate = tomorrowsActualDate();
         System.out.println("Tomorrows Date is " + tommorrowsDate + "\n");
+
+        // Add 5 weeks to todays LocalDateTime
+        LocalDate todaysDatePlus = todaysDateAdder(5);
+        System.out.println("Todays date plus your specified number is " + todaysDatePlus + "\n");
 
 
     }
@@ -31,8 +37,14 @@ public class Main {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-MM-dd HH:mm:ss");
         String formatDateTime = tommorowsDate.format(formatter);
 
-
         return formatDateTime;
+    }
+
+    private static LocalDate todaysDateAdder(int x){
+        LocalDate todaysDate = LocalDate.now();
+        LocalDate dateAdder = todaysDate.plusWeeks(x);
+        return dateAdder;
+
     }
 }
 
