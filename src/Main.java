@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 
 public class Main {
@@ -19,6 +20,12 @@ public class Main {
         // Add 5 weeks to todays LocalDateTime
         LocalDate todaysDatePlus = todaysDateAdder(5);
         System.out.println("Todays date plus your specified number is " + todaysDatePlus + "\n");
+
+        //TODO Initialize a LocalDateTime object to your birthdate and the time 12:35 PM.
+        LocalDate birthDated = LocalDate.of(1998, Month.JANUARY,13);
+        String howOldAmI = dateInitializer(birthDated);
+        System.out.println("You are " + howOldAmI + " many days old\n");
+
 
 
     }
@@ -46,5 +53,17 @@ public class Main {
         return dateAdder;
 
     }
+    private static String dateInitializer(LocalDate birthDay) {
+        LocalDate todaysDate = birthDay;
+        LocalDateTime today = todaysDate.atTime(12,35);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-MM-dd HH:mm");
+        String formatDateTime = todaysDate.format(formatter);
+
+        return formatDateTime;
+    }
+
+
+
+
 }
 
