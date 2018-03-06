@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -46,6 +49,10 @@ public class Main {
         LocalDate secondValue = LocalDate.of(2018, Month.MARCH, 5);
         LocalDate whosFirst = whatCameFirst(firstValue,secondValue);
         System.out.println("The date that came first is: " + whosFirst + "\n");
+
+        //TODO Create a file with 100 random "month/day/year hour:minutes" (in that format) on each line.
+        File file = fileSaver();
+        System.out.println(file);
 
 
     }
@@ -113,6 +120,21 @@ public class Main {
             return firstValue;
         }
         return secondValue;
+    }
+
+    private static File fileSaver() {
+        File outfile = new File( "yourfilename.withextension" );
+        if( outfile.exists() ) {
+            System.out.println( "Oh no, you're going to overwrite the data in the file!" );
+        } else {
+            try( PrintWriter pw = new PrintWriter( outfile ) ) {
+                System.out.println( "This is being written to stdout." );
+                pw.println( "This is being written to the file." );
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return outfile;
     }
 
 }
