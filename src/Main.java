@@ -35,14 +35,22 @@ public class Main {
         long howManyDaysOld = ageCounter(birthDated);
         System.out.println("You are " + howManyDaysOld + " days old\n");
 
-        //TODO Output the number of days between two dates.
+        // Output the number of days between two dates.
         LocalDate firstDate = LocalDate.of(2018, Month.JANUARY, 1);
         LocalDate secondDate = LocalDate.of(2018, Month.MARCH, 5);
         long numberOfDays = daysBetween(firstDate, secondDate);
         System.out.println("The number of days between your specified dates are " + numberOfDays + "\n");
 
+        // Given two dates, output the earlier..
+        LocalDate firstValue = LocalDate.of(2018, Month.MARCH, 10);
+        LocalDate secondValue = LocalDate.of(2018, Month.MARCH, 5);
+        LocalDate whosFirst = whatCameFirst(firstValue,secondValue);
+        System.out.println("The date that came first is: " + whosFirst + "\n");
+
 
     }
+
+
 
     private static String todaysActualDateTime() {
         LocalDateTime currentTime = LocalDateTime.now();
@@ -99,5 +107,13 @@ public class Main {
 
         return daysInBetween;
     }
+
+    private static LocalDate whatCameFirst(LocalDate firstValue, LocalDate secondValue) {
+        if (firstValue.isBefore(secondValue)) {
+            return firstValue;
+        }
+        return secondValue;
+    }
+
 }
 
