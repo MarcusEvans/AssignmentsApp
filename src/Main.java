@@ -1,15 +1,21 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         System.out.println("\n\nHello, AssignmentsApp!\n");
 
@@ -47,17 +53,16 @@ public class Main {
         // Given two dates, output the earlier..
         LocalDate firstValue = LocalDate.of(2018, Month.MARCH, 10);
         LocalDate secondValue = LocalDate.of(2018, Month.MARCH, 5);
-        LocalDate whosFirst = whatCameFirst(firstValue,secondValue);
+        LocalDate whosFirst = whatCameFirst(firstValue, secondValue);
         System.out.println("The date that came first is: " + whosFirst + "\n");
 
         //TODO Create a file with 100 random "month/day/year hour:minutes" (in that format) on each line.
-        File file = fileSaver();
-        System.out.println(file);
+        ArrayList file = fileSaver();
+        System.out.println("The files in the arraylist " + file);
 
+        //
 
     }
-
-
 
     private static String todaysActualDateTime() {
         LocalDateTime currentTime = LocalDateTime.now();
@@ -122,20 +127,16 @@ public class Main {
         return secondValue;
     }
 
-    private static File fileSaver() {
-        File outfile = new File( "yourfilename.withextension" );
-        if( outfile.exists() ) {
-            System.out.println( "Oh no, you're going to overwrite the data in the file!" );
-        } else {
-            try( PrintWriter pw = new PrintWriter( outfile ) ) {
-                System.out.println( "This is being written to stdout." );
-                pw.println( "This is being written to the file." );
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-        return outfile;
+    private static ArrayList fileSaver() throws IOException {
+        Path out = Paths.get("assignments");
+        List<String> arrayList = new ArrayList<>(Arrays.asList("a", "b", "c"));
+        Files.write(out,arrayList, Charset.defaultCharset());
+        return (ArrayList) arrayList;
     }
 
 }
+
+
+
+
 
