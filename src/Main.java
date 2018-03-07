@@ -1,17 +1,11 @@
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.*;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.Random;
 
 public class Main {
 
@@ -57,10 +51,9 @@ public class Main {
         System.out.println("The date that came first is: " + whosFirst + "\n");
 
         //TODO Create a file with 100 random "month/day/year hour:minutes" (in that format) on each line.
-        ArrayList file = fileSaver();
-        System.out.println("The files in the arraylist " + file);
+        fileSaver("assignments.txt");
+        //System.out.println("The files in the arraylist " + file);
 
-        //
 
     }
 
@@ -127,14 +120,26 @@ public class Main {
         return secondValue;
     }
 
-    private static ArrayList fileSaver() throws IOException {
-        Path out = Paths.get("assignments");
-        List<String> arrayList = new ArrayList<>(Arrays.asList("a", "b", "c"));
-        Files.write(out,arrayList, Charset.defaultCharset());
-        return (ArrayList) arrayList;
+    private static void fileSaver(String file)
+            throws IOException {
+        Random rand = new Random();
+        ArrayList<String> localDateFiles = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            localDateFiles.add("Marcus");
+        }
+            FileWriter writer = new FileWriter(file);
+            int size = localDateFiles.size();
+            for (int i=0;i<size;i++) {
+                String str = localDateFiles.get(i).toString();
+                writer.write(str);
+            }
+            writer.close();
+        }
     }
 
-}
+
+
+
 
 
 
