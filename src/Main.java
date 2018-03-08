@@ -5,7 +5,9 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
 
@@ -51,11 +53,16 @@ public class Main {
         System.out.println("The date that came first is: " + whosFirst + "\n");
 
         // Create a file with 100 random "month/day/year hour:minutes" (in that format) on each line.
-        fileSaver();
-        //System.out.println("The files in the arraylist " + file);
+        fileWriter();
+
+        //Store data from the file into an ArrayList of LocalDateTime objects.
+        List<String> fileReader = readFile("assignments.txt");
+        System.out.println(fileReader);
 
 
     }
+
+
 
     private static String todaysActualDateTime() {
         LocalDateTime currentTime = LocalDateTime.now();
@@ -120,30 +127,50 @@ public class Main {
         return secondValue;
     }
 
-    private static void fileSaver() {
+    private static void fileWriter() {
         File outfile = new File("assignments.txt");
-        try (PrintWriter pw = new PrintWriter(outfile)){
-        Random rand = new Random();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-mm-dd HH:MM");
-        for (int i = 0; i < 100; i++) {
-            LocalDateTime todaysDate = LocalDateTime.now();
+        try (PrintWriter pw = new PrintWriter(outfile)) {
+            Random rand = new Random();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-mm-dd HH:MM");
+            for (int i = 0; i < 100; i++) {
+                LocalDateTime todaysDate = LocalDateTime.now();
 
-            int randDate = rand.nextInt(100)+ 1;
-            LocalDateTime newDays = todaysDate.plusDays(randDate);
-            LocalDateTime newTimes = todaysDate.plusHours(randDate).plusMinutes(randDate);
+                int randDate = rand.nextInt(100) + 1;
+                LocalDateTime newDays = todaysDate.plusDays(randDate);
+                LocalDateTime newTimes = todaysDate.plusHours(randDate).plusMinutes(randDate);
 
-            String dateFormatter = newDays.format(formatter);
-            String timeFormatter = newTimes.format(formatter);
+                String dateFormatter = newDays.format(formatter);
+                String timeFormatter = newTimes.format(formatter);
 
-            pw.println(dateFormatter);
-            pw.println(timeFormatter);
+                pw.println(dateFormatter);
+                pw.println(timeFormatter);
 
-        }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
             }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    private static List<String> readFile(String filename) {
+        List<String> records = new ArrayList<String>();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filename));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                records.add(line);
+            }
+            reader.close();
+            return records;
+        } catch (Exception e) {
+            System.err.format("Exception occurred trying to read '%s'.", filename);
+            e.printStackTrace();
+            return null;
         }
     }
+}
+
 
 
 
