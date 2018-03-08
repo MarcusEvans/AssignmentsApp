@@ -7,7 +7,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Main {
 
@@ -60,12 +59,11 @@ public class Main {
         System.out.println(fileReader);
 
         //TODO Output the number of stored dates in the year [Y].
-       // int HowManyInTheYear = howManyOfThisYear(201)
+//        int howManyOfThisYear = howManyOfThisYear(LocalDate.ofYearDay(2018,1), "assignments.txt");
+//        System.out.println("The number of stored dates in a year are " + howManyOfThisYear);
 
 
     }
-
-
 
     private static String todaysActualDateTime() {
         LocalDateTime currentTime = LocalDateTime.now();
@@ -172,7 +170,33 @@ public class Main {
             return null;
         }
     }
-}
+
+//    private static int howManyOfThisYear(LocalDate year, String filename) {
+//        int count = 0;
+//        List<String> records = new ArrayList<String>();
+//        try {
+//            BufferedReader reader = new BufferedReader(new FileReader(filename));
+//            String line;
+//            while ((line = reader.readLine()) != null) {
+//                records.add(line);
+//            }
+//            reader.close();
+//            for (int i = 0; i < records.size(); i++) {
+//                if (records.equals(year)){
+//                    count ++;
+//                }
+//            }
+//
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return count;
+//    }
+//}
+
+
 
 
 
