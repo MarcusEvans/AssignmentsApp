@@ -50,8 +50,8 @@ public class Main {
         LocalDate whosFirst = whatCameFirst(firstValue, secondValue);
         System.out.println("The date that came first is: " + whosFirst + "\n");
 
-        //TODO Create a file with 100 random "month/day/year hour:minutes" (in that format) on each line.
-        fileSaver("assignments.txt");
+        // Create a file with 100 random "month/day/year hour:minutes" (in that format) on each line.
+        fileSaver();
         //System.out.println("The files in the arraylist " + file);
 
 
@@ -120,22 +120,31 @@ public class Main {
         return secondValue;
     }
 
-    private static void fileSaver(String file)
-            throws IOException {
+    private static void fileSaver() {
+        File outfile = new File("assignments.txt");
+        try (PrintWriter pw = new PrintWriter(outfile)){
         Random rand = new Random();
-        ArrayList<String> localDateFiles = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-mm-dd HH:MM");
         for (int i = 0; i < 100; i++) {
-            localDateFiles.add("Marcus");
+            LocalDateTime todaysDate = LocalDateTime.now();
+
+            int randDate = rand.nextInt(100)+ 1;
+            LocalDateTime newDays = todaysDate.plusDays(randDate);
+            LocalDateTime newTimes = todaysDate.plusHours(randDate).plusMinutes(randDate);
+
+            String dateFormatter = newDays.format(formatter);
+            String timeFormatter = newTimes.format(formatter);
+
+            pw.println(dateFormatter);
+            pw.println(timeFormatter);
+
         }
-            FileWriter writer = new FileWriter(file);
-            int size = localDateFiles.size();
-            for (int i=0;i<size;i++) {
-                String str = localDateFiles.get(i).toString();
-                writer.write(str);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
             }
-            writer.close();
         }
     }
+
 
 
 
