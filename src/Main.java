@@ -59,6 +59,9 @@ public class Main {
         List<String> fileReader = readFile("assignments.txt");
         System.out.println(fileReader);
 
+        //TODO Output the number of stored dates in the year [Y].
+       // int HowManyInTheYear = howManyOfThisYear(201)
+
 
     }
 
@@ -135,7 +138,7 @@ public class Main {
             for (int i = 0; i < 100; i++) {
                 LocalDateTime todaysDate = LocalDateTime.now();
 
-                int randDate = rand.nextInt(100) + 1;
+                int randDate = rand.nextInt(30) + 1;
                 LocalDateTime newDays = todaysDate.plusDays(randDate);
                 LocalDateTime newTimes = todaysDate.plusHours(randDate).plusMinutes(randDate);
 
