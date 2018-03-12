@@ -62,6 +62,18 @@ public class Main {
 //        int howManyOfThisYear = howManyOfThisYear(LocalDate.ofYearDay(2018,1), "assignments.txt");
 //        System.out.println("The number of stored dates in a year are " + howManyOfThisYear);
 
+        //TODO Define and use a DayOfWeek enumerated type.
+
+        EnumTest(EnumTest.main();
+
+
+
+
+
+
+
+        //TODO Define and use a Course enumerated type.
+
 
     }
 
@@ -171,30 +183,30 @@ public class Main {
         }
     }
 
-//    private static int howManyOfThisYear(LocalDate year, String filename) {
-//        int count = 0;
-//        List<String> records = new ArrayList<String>();
-//        try {
-//            BufferedReader reader = new BufferedReader(new FileReader(filename));
-//            String line;
-//            while ((line = reader.readLine()) != null) {
-//                records.add(line);
-//            }
-//            reader.close();
-//            for (int i = 0; i < records.size(); i++) {
-//                if (records.equals(year)){
-//                    count ++;
-//                }
-//            }
-//
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return count;
-//    }
-//}
+    private static int howManyOfThisYear(LocalDate year, String filename) {
+        int count = 0;
+        List<String> records = new ArrayList<String>();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filename));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                records.add(line);
+            }
+            reader.close();
+            for (int i = 0; i < records.size(); i++) {
+                if (records.equals(year)){
+                    count ++;
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+}
 
 
 
