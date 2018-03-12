@@ -59,12 +59,11 @@ public class Main {
         List<String> fileReader = readFile("assignments.txt" );
         System.out.println(fileReader + "\n");
 
-        //TODO Output the number of stored dates in the year [Y].
+        // Output the number of stored dates in the year [Y].
 //        int howManyOfThisYear = howManyOfThisYear(LocalDate.ofYearDay(2018,1), "assignments.txt");
 //        System.out.println("The number of stored dates in a year are " + howManyOfThisYear);
 
-        //TODO Define and use a DayOfWeek enumerated type.
-
+        // Define and use a DayOfWeek enumerated type.
         EnumTest firstDay = new EnumTest(DayOfTheWeek.MONDAY);
         firstDay.tellItLikeItIs();
         EnumTest thirdDay = new EnumTest(DayOfTheWeek.WEDNESDAY);
@@ -73,12 +72,38 @@ public class Main {
         fifthDay.tellItLikeItIs();
         EnumTest sixthDay = new EnumTest(DayOfTheWeek.SATURDAY);
         sixthDay.tellItLikeItIs();
-        EnumTest seventhDay = new EnumTest(DayOfTheWeek.SUNDAY);
+        EnumTest seventhDay = new EnumTest(DayOfTheWeek.SUNDAY );
         seventhDay.tellItLikeItIs();
 
 
+        // Define and use a Course enumerated type.
 
-        //TODO Define and use a Course enumerated type.
+        EnumTest firstClass = new EnumTest(Courses.THEOLOGY);
+        firstClass.Class();
+        EnumTest nextClass = new EnumTest(Courses.DATASTRUCTURES);
+        nextClass.Class();
+        EnumTest otherClass = new EnumTest(Courses.FRENCH);
+        otherClass.Class();
+        EnumTest actingClass = new EnumTest(Courses.PERFORMANCELITERATURE);
+        actingClass.Class();
+        EnumTest mathClass = new EnumTest(Courses.STATS);
+        mathClass.Class();
+
+        //TODO Define and use a Category enumerated type.
+        EnumTest mostDisliked = new EnumTest(Category.FINAL_EXAM);
+        mostDisliked.Category();
+        EnumTest nextMostDisliked = new EnumTest(Category.HOMEWORK);
+        nextMostDisliked.Category();
+        EnumTest category = new EnumTest(Category.PRESENTATION);
+        category.Category();
+        EnumTest otherCategory = new EnumTest(Category.QUIZ);
+        otherCategory.Category();
+        EnumTest hatedCategory = new EnumTest(Category.TEST);
+        hatedCategory.Category();
+
+
+
+
 
 
     }
