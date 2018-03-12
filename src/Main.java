@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -55,8 +56,8 @@ public class Main {
         fileWriter();
 
         //Store data from the file into an ArrayList of LocalDateTime objects.
-        List<String> fileReader = readFile("assignments.txt");
-        System.out.println(fileReader);
+        List<String> fileReader = readFile("assignments.txt" );
+        System.out.println(fileReader + "\n");
 
         //TODO Output the number of stored dates in the year [Y].
 //        int howManyOfThisYear = howManyOfThisYear(LocalDate.ofYearDay(2018,1), "assignments.txt");
@@ -64,14 +65,16 @@ public class Main {
 
         //TODO Define and use a DayOfWeek enumerated type.
 
-        EnumTest(EnumTest.main();
-
-        EnumTest day = new EnumTest();
-        System.out.println("The Days of the week: " + EnumTest);
-
-
-
-
+        EnumTest firstDay = new EnumTest(DayOfTheWeek.MONDAY);
+        firstDay.tellItLikeItIs();
+        EnumTest thirdDay = new EnumTest(DayOfTheWeek.WEDNESDAY);
+        thirdDay.tellItLikeItIs();
+        EnumTest fifthDay = new EnumTest(DayOfTheWeek.FRIDAY);
+        fifthDay.tellItLikeItIs();
+        EnumTest sixthDay = new EnumTest(DayOfTheWeek.SATURDAY);
+        sixthDay.tellItLikeItIs();
+        EnumTest seventhDay = new EnumTest(DayOfTheWeek.SUNDAY);
+        seventhDay.tellItLikeItIs();
 
 
 

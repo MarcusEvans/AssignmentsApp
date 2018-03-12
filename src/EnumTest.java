@@ -15,7 +15,8 @@ public class EnumTest {
                 System.out.println("Fridays are better.");
                 break;
 
-            case SATURDAY: case SUNDAY:
+            case SATURDAY:
+            case SUNDAY:
                 System.out.println("Weekends are best.");
                 break;
 
@@ -25,17 +26,4 @@ public class EnumTest {
         }
     }
 
-    public static void main(String[] args) {
-        EnumTest firstDay = new EnumTest(DayOfTheWeek.MONDAY);
-        firstDay.tellItLikeItIs();
-        EnumTest thirdDay = new EnumTest(DayOfTheWeek.WEDNESDAY);
-        thirdDay.tellItLikeItIs();
-        EnumTest fifthDay = new EnumTest(DayOfTheWeek.FRIDAY);
-        fifthDay.tellItLikeItIs();
-        EnumTest sixthDay = new EnumTest(DayOfTheWeek.SATURDAY);
-        sixthDay.tellItLikeItIs();
-        EnumTest seventhDay = new EnumTest(DayOfTheWeek.SUNDAY);
-        seventhDay.tellItLikeItIs();
-    }
-}
 }
