@@ -89,7 +89,7 @@ public class Main {
         EnumTest mathClass = new EnumTest(Courses.STATS);
         mathClass.Class();
 
-        //TODO Define and use a Category enumerated type.
+        // Define and use a Category enumerated type.
         EnumTest mostDisliked = new EnumTest(Category.FINAL_EXAM);
         mostDisliked.Category();
         EnumTest nextMostDisliked = new EnumTest(Category.HOMEWORK);
