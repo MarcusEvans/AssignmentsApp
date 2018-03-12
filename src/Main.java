@@ -66,6 +66,9 @@ public class Main {
 
         EnumTest(EnumTest.main();
 
+        EnumTest day = new EnumTest();
+        System.out.println("The Days of the week: " + EnumTest);
+
 
 
 
